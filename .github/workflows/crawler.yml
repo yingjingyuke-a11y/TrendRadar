@@ -46,6 +46,7 @@ jobs:
 
           echo "✅ 配置文件检查通过"
 
+
       - name: Run crawler
         env:
           FEISHU_WEBHOOK_URL: ${{ secrets.FEISHU_WEBHOOK_URL }}
@@ -63,6 +64,11 @@ jobs:
           NTFY_TOKEN: ${{ secrets.NTFY_TOKEN }}
           GITHUB_ACTIONS: true
         run: python main.py
+    # ----------------------------------------------------
+    # ^^^^^^ 结束 Run crawler 步骤 ^^^^^^
+    
+    # 下一个步骤必须和 Run crawler 保持相同的缩进
+
 
       - name: Commit and push if changes
         run: |
